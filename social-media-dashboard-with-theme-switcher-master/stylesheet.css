@@ -1,0 +1,356 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  background-color: hsl(0, 0%, 100%);
+  padding: 1.78rem;
+  position: relative;
+}
+
+.container::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 242px;
+  background-color: hsl(225, 100%, 98%);
+  border-radius: 0 0 50px 50px;
+}
+
+/* --- DASHBOARD --- */
+
+.dashboard {
+  margin: 0 auto;
+  max-width: 1110px;
+  color: hsl(228, 12%, 44%);
+  z-index: 1;
+}
+
+.social-media-overview,
+.followers-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
+  justify-content: space-between;
+}
+
+.followers-stats {
+  margin-bottom: 3.6rem;
+}
+
+/* --- DASHBOARD HEADER --- */
+
+.dashboard-header,
+.dashboard-heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-heading {
+  border-bottom: 1px solid hsl(228, 12%, 44%);
+  margin-bottom: 1rem;
+}
+
+.dashboard-header,
+.dashboard-heading,
+.toggle {
+  z-index: 1;
+}
+
+.dashboard-header h1 {
+  color: hsl(230, 17%, 14%);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-header p {
+  font-weight: 700;
+}
+
+.dashboard-heading p {
+  margin-bottom: 1.5rem;
+}
+
+.toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.8rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  width: 48px;
+  margin-left: 1rem;
+}
+
+.switch input {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(230, 22%, 74%);
+  transition: 0.5s;
+}
+
+.slider::before {
+  position: absolute;
+  content: " ";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: hsl(0, 0%, 100%);
+  transition: 1s;
+}
+
+input:checked + .slider {
+  background-image: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+.round {
+  border-radius: 50px;
+}
+
+.round::before {
+  border-radius: 50px;
+}
+
+/* --- DASHBOARD CARDS --- */
+
+.facebook:before,
+.twitter::before,
+.instagram::before,
+.youtube::before {
+  content: " ";
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  height: 4px;
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+}
+.facebook::before {
+  background-color: hsl(208, 92%, 53%);
+}
+
+.twitter::before {
+  background-color: hsl(203, 89%, 53%);
+}
+
+.instagram::before {
+  background-image: linear-gradient(
+    to right,
+    hsl(37, 97%, 70%),
+    hsl(329, 70%, 58%)
+  );
+}
+
+.youtube::before {
+  background-color: hsl(348, 97%, 39%);
+}
+
+.social-media-card,
+.overview-card {
+  background-color: hsl(227, 47%, 96%);
+  border-radius: 6px;
+}
+
+.social-media-card:hover,
+.overview-card:hover {
+  cursor: pointer;
+  background-color: hsl(232, 33%, 91%);
+}
+
+.social-media-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.social-media-name {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: 2.1rem;
+}
+
+.social-media-name img {
+  margin-right: 10px;
+}
+
+.followers-amount {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.followers {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 2.1rem;
+}
+
+.percentage {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+.percentage img {
+  margin-right: 5px;
+}
+
+.followers-amount,
+.views-likes-amount {
+  color: hsl(230, 17%, 14%);
+}
+
+.overview {
+  margin-bottom: 1.7rem;
+}
+
+.overview-card {
+  padding: 1.8rem;
+}
+
+.views-likes {
+  margin-bottom: 2rem;
+}
+
+.views-likes,
+.overview-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.views-likes,
+.views-likes-amount {
+  font-weight: 700;
+}
+
+.views-likes-amount {
+  font-size: 1.72rem;
+}
+
+.gained {
+  color: hsl(163, 72%, 41%);
+}
+
+.lost {
+  color: hsl(356, 69%, 56%);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* --- TOGGLE ACTIVE STATES --- */
+
+.container.active {
+  background-color: hsl(230, 17%, 14%);
+}
+
+.container.active::before {
+  background-color: hsl(232, 19%, 15%);
+}
+
+.dashboard-header.active h1,
+.followers-amount.active,
+.overview.active,
+.views-likes-amount.active {
+  color: hsl(0, 0%, 100%);
+}
+
+.dashboard-header.active p,
+.social-media-name.active,
+.followers.active,
+.views-likes.active {
+  color: hsl(228, 34%, 66%);
+}
+
+.social-media-card.active,
+.overview-card.active {
+  background-color: hsl(228, 28%, 20%);
+}
+
+.social-media-card.active:hover,
+.overview-card.active:hover {
+  background-color: hsl(228, 26%, 27%);
+}
+
+.container,
+.container::before,
+.dashboard-header,
+.followers-amount,
+.overview,
+.views-likes-amount,
+.dashboard-header p,
+.social-media-name,
+.followers,
+.views-likes,
+.social-media-card,
+.overview-card {
+  transition: 0.5s;
+}
+
+/* --- MEDIA QUERIES --- */
+@media only screen and (min-width: 800px) {
+  .social-media-overview,
+  .followers-stats {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+
+  .dashboard-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dashboard-heading {
+    border-bottom: none;
+  }
+}
+
+@media only screen and (min-width: 1123px) {
+  .social-media-overview,
+  .followers-stats {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
